@@ -1,4 +1,4 @@
-# Write your MySQL query statement below
+# Write your MySQL query statement below, a little bit slower than without exists 
 SELECT 
     name, population, area 
 from 
