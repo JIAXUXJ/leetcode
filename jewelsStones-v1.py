@@ -7,6 +7,7 @@ class Solution:
         """
         J_ = list(J)
         S_ = list(S)
+        # String also can iterate directly
         count = 0
         for i in S_:
             for j in J_:
