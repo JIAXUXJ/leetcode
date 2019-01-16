@@ -3,7 +3,9 @@
  Running time: 0sec
  */
 #define LIST_LENGTH 1000
+
 typedef struct Item Item;
+
 struct Item{
     int value;
     int index;
