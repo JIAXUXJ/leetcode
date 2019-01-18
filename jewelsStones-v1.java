@@ -1,6 +1,9 @@
 class Solution {
     public int numJewelsInStones(String J, String S) {
-        System.out.println(S);
-        return 0;
+        int res = 0;
+        Set set = new HashSet();
+        for(char c:J.toCharArray())set.add(c);
+        for(char s:S.toCharArray())if(set.contains(s))res++;
+        return res;
     }
 }
