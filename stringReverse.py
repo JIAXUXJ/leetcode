@@ -5,12 +5,27 @@ class StringMonitor(object):
 		super(StringMonitor, self).__init__()
 		self.curStr = s
 
-	def reverseString(self):
+	def reverseString1(self):
 		"""
 		:type s: str
 		:rtype: str
-		"""
+		# """
+		# print(self.curStr[::-1])
 		return (self.curStr[::-1])
+	def reverseString2(self):
+		"""
+		Do not return anything, modify s in-place instead.
+		"""
+		start = 0
+		newList = list(self.curStr)
+		end = len(self.curStr) - 1
+		while(start < end):
+			newList[start],newList[end]=newList[end],newList[start]
+			start+=1
+			end-=1
+		self.curStr = ''.join(str(i) for i in newList)
+		print(self.curStr)
+		return self.curStr
 
 class Test_StringMonitor(unittest.TestCase):
 	"""docstring for Test_StringMonitor"""
@@ -19,17 +34,19 @@ class Test_StringMonitor(unittest.TestCase):
 		self.assertEqual('ab', s.curStr)
 	def test_reverse_normal(self):
 		s = StringMonitor('abcd0io')
-		self.assertEqual('oi0dcba', s.reverseString())
+		self.assertEqual('oi0dcba', s.reverseString2())
 	def test_reverse_empty(self):
 		s = StringMonitor('')
-		self.assertEqual('', s.reverseString())
+		self.assertEqual('', s.reverseString2())
 	def test_reverse_num(self):
 		s = StringMonitor('123456')
-		self.assertEqual('654321', s.reverseString())
+		self.assertEqual('654321', s.reverseString2())
 
 
 def main():
 	unittest.main()
+	# s = StringMonitor('abcd')
+	# s.reverseString2()
 
 if __name__ == '__main__':
 	main()
