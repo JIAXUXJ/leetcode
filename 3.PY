@@ -13,4 +13,5 @@ class Solution(object):
             else:
                 res = max(res, i - start + 1)
             dic[s[i]] = i
+            
         return res
