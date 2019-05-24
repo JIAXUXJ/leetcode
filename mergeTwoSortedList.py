@@ -11,4 +11,4 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
-        
+        for i in l1:
