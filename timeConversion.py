@@ -6,6 +6,7 @@ import sys
 #
 # Complete the timeConversion function below.
 #
+# ======================================MY SOLUTION START===========================================
 def timeConversion(s):
 	#
 	# Write your code here.
@@ -18,10 +19,13 @@ def timeConversion(s):
 		return res
 	elif endAm and startS:
 		res = "00" + (res[2:])
-	else:
+	elif not endAm and (int(s[0:2]) < 12):
 		res = "%02d" % (int(res[:2])+12) + (res[2:])
+	else:
+		return res
 	return res
-	
+# ======================================MY SOLUTION END===========================================
+
 if __name__ == '__main__':
 
 	f = open(os.environ['OUTPUT_PATH'], 'w')

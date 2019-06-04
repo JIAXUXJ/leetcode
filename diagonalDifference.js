@@ -25,6 +25,7 @@ function readLine() {
 }
 
 // Complete the diagonalDifference function below.
+// ======================================MY SOLUTION START===========================================
 function diagonalDifference(arr) {
     var n = arr.length;
     var i = 0, leftVal = 0, rightVal = 0, leftPointer = 0, rightPointer = n - 1;
@@ -46,6 +47,7 @@ function diagonalDifference(arr) {
     }
     return Math.abs(leftVal - rightVal);
 }
+// ======================================MY SOLUTION END===========================================
 
 function main() {
     const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
