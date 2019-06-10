@@ -1,4 +1,5 @@
 class Solution(object):
+    # sliding window
     def lengthOfLongestSubstring(self, s):
         """
         :type s: str
