@@ -4,6 +4,7 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
+        
         left, right = 0, 0
         queue = []
         last_pos = {}
