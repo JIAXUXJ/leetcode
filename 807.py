@@ -3,7 +3,6 @@ class Solution(object):
         """
         :type grid: List[List[int]]
         :rtype: int
-        
         """
         horizontal, vertical = list(), list()
         for i in range(len(grid)):
