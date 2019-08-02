@@ -1,0 +1,1 @@
+# Write a function that gets the number of squares between two numbers  
