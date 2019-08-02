@@ -13,3 +13,15 @@ def CountSquares(a, b):
             j = j + 1
         i = i + 1
     return cnt 
+
+ # method2
+ # An Efficient Method to count squares between a 
+# and b 
+import math 
+def CountSquares(a, b): 
+    return (math.floor(math.sqrt(b)) - math.ceil(math.sqrt(a)) + 1) 
+  
+# Driver Code 
+a = 9
+b = 25
+print "Count of squares is:", int(CountSquares(a, b)) 
