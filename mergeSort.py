@@ -14,3 +14,13 @@ def mergeSort(arr):
 				i += 1
 			else:
 				arr[k] = r[j]
+				j += 1
+			k += 1
+		while i < len(l):
+			arr[k] = l[i]
+			i += 1
+			k += 1
+		while j < len(r):
+			arr[k] = r[j]
+			j += 1
+			k += 1
