@@ -14,3 +14,6 @@ class Solution(object):
             if v == 0:
                 nums[i] = 0
                 i += 1
+
+
+                
