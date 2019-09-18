@@ -13,4 +13,5 @@ class Solution(object):
         return no_dup_list.pop()
 
 # method#2
+
          return 2 * sum(set(nums)) - sum(nums)
