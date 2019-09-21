@@ -1,3 +1,4 @@
+<!-- by Jia Xu -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,34 +11,36 @@
 	<style type="text/css">
 		.centered {
 		  position: fixed;
-		  top: 10%;
 		  left: 50%;
 		  transform: translate(-50%);
 		}
 		.btn-pos{
 			float: right;
 		}
+		.page-header {
+			border-bottom: none;
+		}
 	</style>
 </head>
 <body>
-<div class="centered">
+<div class="centered ">
+	<div class="page-header">
+    	<h2>Address validation, by Jia Xu</h2>
+  	</div>
 	<table class="table">
 		<tr>
-	    <td id="addrCtl_label_country" class="">
-	        <label for="change_country" id="cg_label_country">Country:</label>
-	    </td>
-			
-	    <td id="ctl_Country" class="">
-	        <select name="dd_Country" onchange="" id="change_country" class="">
-				<option selected="selected" value="Canada">Canada</option>
-				<option value="United States">United States</option>
-			</select>
-	    <!-- <span id="PC6028_DonationCapture1_AddressCtl_ctl17" style="display:none;"></span></td> -->
-			
-	    <td id="Addr_req_country" class="">
-	            *
-	        </td>
-			
+		    <td id="addrCtl_label_country" class="">
+		        <label for="change_country" id="cg_label_country">Country:</label>
+		    </td>
+				
+		    <td id="ctl_Country" class="">
+		        <select name="dd_Country" onchange="add_country(this.value)" id="change_country" class="">
+					<option selected="selected" value="Canada">Canada</option>
+					<option value="United States">United States</option>
+				</select>
+				
+		    <td id="Addr_req_country" class="">*</td>
+				
 		</tr>
 		<tr>
 		    <td id="AddrCtl_lbl_addrline" class="">
@@ -45,11 +48,8 @@
 		    </td>
 				
 		    <td id="AddrCtl_ctl_addr" class="">
-		        <textarea name="tb_AddrLine" rows="2" cols="20" id="AddrCtl_tb_addrline" class="">
-				</textarea>
-		    <td id="AddrCtl_lblreq" valign="top" class="">
-		        *
-		    </td>
+		        <textarea name="tb_AddrLine" rows="2" cols="20" id="AddrCtl_tb_addrline" class=""></textarea>
+		    <td id="AddrCtl_lblreq" valign="top" class="">*</td>
 				
 		</tr>
 
@@ -87,7 +87,94 @@
 	</div>
 </div>
 
-
 </body>
+<footer>
+	<script type="text/javascript">
+		prov_ca = {
+					"AB": "Alberta",
+					"BC": "British Columbia",
+					"MB": "Manitoba",
+					"NB": "New Brunswick",
+					"NL": "Newfoundland and Labrador",
+					"NT": "Northwest Territories",
+					"NS": "Nova Scotia",
+					"NU": "Nunavut",
+					"ON": "Ontario",
+					"PE": "Prince Edward Island",
+					"QC": "Quebec",
+					"SK": "Saskatchewan",
+					"YT": "Yukon Territory"
+				}
+		prov_us = {
+				    "AL": "Alabama",
+				    "AK": "Alaska",
+				    "AS": "American Samoa",
+				    "AZ": "Arizona",
+				    "AR": "Arkansas",
+				    "CA": "California",
+				    "CO": "Colorado",
+				    "CT": "Connecticut",
+				    "DE": "Delaware",
+				    "DC": "District Of Columbia",
+				    "FM": "Federated States Of Micronesia",
+				    "FL": "Florida",
+				    "GA": "Georgia",
+				    "GU": "Guam",
+				    "HI": "Hawaii",
+				    "ID": "Idaho",
+				    "IL": "Illinois",
+				    "IN": "Indiana",
+				    "IA": "Iowa",
+				    "KS": "Kansas",
+				    "KY": "Kentucky",
+				    "LA": "Louisiana",
+				    "ME": "Maine",
+				    "MH": "Marshall Islands",
+				    "MD": "Maryland",
+				    "MA": "Massachusetts",
+				    "MI": "Michigan",
+				    "MN": "Minnesota",
+				    "MS": "Mississippi",
+				    "MO": "Missouri",
+				    "MT": "Montana",
+				    "NE": "Nebraska",
+				    "NV": "Nevada",
+				    "NH": "New Hampshire",
+				    "NJ": "New Jersey",
+				    "NM": "New Mexico",
+				    "NY": "New York",
+				    "NC": "North Carolina",
+				    "ND": "North Dakota",
+				    "MP": "Northern Mariana Islands",
+				    "OH": "Ohio",
+				    "OK": "Oklahoma",
+				    "OR": "Oregon",
+				    "PW": "Palau",
+				    "PA": "Pennsylvania",
+				    "PR": "Puerto Rico",
+				    "RI": "Rhode Island",
+				    "SC": "South Carolina",
+				    "SD": "South Dakota",
+				    "TN": "Tennessee",
+				    "TX": "Texas",
+				    "UT": "Utah",
+				    "VT": "Vermont",
+				    "VI": "Virgin Islands",
+				    "VA": "Virginia",
+				    "WA": "Washington",
+				    "WV": "West Virginia",
+				    "WI": "Wisconsin",
+				    "WY": "Wyoming"
+				}
+		//init the page with Canada option
+		add_country('Canada');
+		//modify page when user add a country
+		function add_country(country){
+			if (country === 'Canada'){
+				
+			}
+		}
+	</script>
+</footer>
 </html>
 
