@@ -1,61 +1,93 @@
-<tr>
-    <td id="addrCtl_label_country" class="">
-        <label for="change_country" id="cg_label_country">Country:</label>
-    </td>
-		
-    <td id="ctl_Country" class="">
-        <select name="dd_Country" onchange="" id="change_country" class="">
-			<option selected="selected" value="Canada">Canada</option>
-			<option value="United States">United States</option>
-		</select>
-    <!-- <span id="PC6028_DonationCapture1_AddressCtl_ctl17" style="display:none;"></span></td> -->
-		
-    <td id="Addr_req_country" class="">
-            *
-        </td>
-		
-</tr>
-<tr>
-    <td id="AddrCtl_lbl_addrline" class="">
-        <label for="AddrCtl_tb_addrline" id="AddrCtl_lblAddr">Address lines:</label>
-    </td>
-		
-    <td id="AddrCtl_ctl_addr" class="">
-        <textarea name="tb_AddrLine" rows="2" cols="20" id="AddrCtl_tb_addrline" class="">
-</textarea>
-    <span id="PC6028_DonationCapture1_AddressCtl_ctl03" style="display:none;"></span><span id="PC6028_DonationCapture1_AddressCtl_ctl04" style="display:none;"></span></td>
-		
-    <td id="PC6028_DonationCapture1_AddressCtl_lblreq_addrline" valign="top" class="">
-        *
-    </td>
-		
-</tr>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>addr form</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.centered {
+		  position: fixed;
+		  top: 10%;
+		  left: 50%;
+		  transform: translate(-50%);
+		}
+		.btn-pos{
+			float: right;
+		}
+	</style>
+</head>
+<body>
+<div class="centered">
+	<table class="table">
+		<tr>
+	    <td id="addrCtl_label_country" class="">
+	        <label for="change_country" id="cg_label_country">Country:</label>
+	    </td>
+			
+	    <td id="ctl_Country" class="">
+	        <select name="dd_Country" onchange="" id="change_country" class="">
+				<option selected="selected" value="Canada">Canada</option>
+				<option value="United States">United States</option>
+			</select>
+	    <!-- <span id="PC6028_DonationCapture1_AddressCtl_ctl17" style="display:none;"></span></td> -->
+			
+	    <td id="Addr_req_country" class="">
+	            *
+	        </td>
+			
+		</tr>
+		<tr>
+		    <td id="AddrCtl_lbl_addrline" class="">
+		        <label for="AddrCtl_tb_addrline" id="AddrCtl_lblAddr">Address lines:</label>
+		    </td>
+				
+		    <td id="AddrCtl_ctl_addr" class="">
+		        <textarea name="tb_AddrLine" rows="2" cols="20" id="AddrCtl_tb_addrline" class="">
+				</textarea>
+		    <td id="AddrCtl_lblreq" valign="top" class="">
+		        *
+		    </td>
+				
+		</tr>
 
 
 
-    <tr>
-        <td id="PC6028_DonationCapture1_AddressCtl_lbl_cityCAN" class="">
-            <label for="PC6028_DonationCapture1_AddressCtl_tb_CityCAN" id="PC6028_DonationCapture1_AddressCtl_lblCityCan">City:</label>
-        </td>
-		<td id="PC6028_DonationCapture1_AddressCtl_ctl_cityCAN" class="">
-            <input name="PC6028$DonationCapture1$AddressCtl$tb_CityCAN" type="text" maxlength="50" id="PC6028_DonationCapture1_AddressCtl_tb_CityCAN" class="" />
-        <span id="PC6028_DonationCapture1_AddressCtl_ctl09" style="display:none;"></span></td>
-		<td id="PC6028_DonationCapture1_AddressCtl_lblreq_cityCAN" class="">
-            *
-        </td>
-		
-    </tr>
-    <!-- <tr>
-        <td id="PC6028_DonationCapture1_AddressCtl_lbl_provCAN" class="">
-            <label for="PC6028_DonationCapture1_AddressCtl_dd_ProvCAN" id="PC6028_DonationCapture1_AddressCtl_lblProvinceCan">Province:</label>
-        </td>
-		
+	    <!-- <tr>
+	        <td id="PC6028_DonationCapture1_AddressCtl_lbl_cityCAN" class="">
+	            <label for="PC6028_DonationCapture1_AddressCtl_tb_CityCAN" id="PC6028_DonationCapture1_AddressCtl_lblCityCan">City:</label>
+	        </td>
+			<td id="PC6028_DonationCapture1_AddressCtl_ctl_cityCAN" class="">
+	            <input name="PC6028$DonationCapture1$AddressCtl$tb_CityCAN" type="text" maxlength="50" id="PC6028_DonationCapture1_AddressCtl_tb_CityCAN" class="" />
+	        <span id="PC6028_DonationCapture1_AddressCtl_ctl09" style="display:none;"></span></td>
+			<td id="PC6028_DonationCapture1_AddressCtl_lblreq_cityCAN" class="">
+	            *
+	        </td>
+			
+	    </tr> -->
+	    <!-- <tr>
+	        <td id="PC6028_DonationCapture1_AddressCtl_lbl_provCAN" class="">
+	            <label for="PC6028_DonationCapture1_AddressCtl_dd_ProvCAN" id="PC6028_DonationCapture1_AddressCtl_lblProvinceCan">Province:</label>
+	        </td>
+			
 
-		</select>
-        <span id="AddrCtl_prov_star" style="display:none;"></span></td>
-		<td id="PC6028_DonationCapture1_AddressCtl_lblreq_provCAN" class="">
-            *
-        </td>
-		
-    </tr> -->
-    
+			</select>
+	        <span id="AddrCtl_prov_star" style="display:none;"></span></td>
+			<td id="PC6028_DonationCapture1_AddressCtl_lblreq_provCAN" class="">
+	            *
+	        </td>
+			
+	    </tr> -->
+	</table>
+	<button type="button" class="btn btn-primary btn-pos">Submit</button><br/><br />
+	<div>
+		Summary:
+	</div>
+</div>
+
+
+</body>
+</html>
+
