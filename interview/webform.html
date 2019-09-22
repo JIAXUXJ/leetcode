@@ -23,7 +23,7 @@
 	</style>
 </head>
 <body>
-<div class="centered ">
+<div class="centered">
 	<div class="page-header">
     	<h2>Address validation, by Jia Xu</h2>
   	</div>
@@ -52,9 +52,9 @@
 		    <td id="AddrCtl_lblreq" valign="top" class="">*</td>	
 		</tr>
 	</table>
-	<button type="button" class="btn btn-primary btn-pos">Submit</button><br/><br />
-	<div>
-		Summary:
+	<button type="button" onclick="validation()" class="btn btn-primary btn-pos">Submit</button><br/><br />
+	<div id="Summary">
+		<h3>Summary:</h3>
 	</div>
 </div>
 
@@ -93,14 +93,46 @@
 			}
 
 			var tr_code = 
-			'<tr id = "prov_line"><td id="country_'+country+'"><label for="prov_'+country+'" id="">'+state_prov_title+':</label></td><td>'+options[0].outerHTML+'</td><td id="">*</td></tr>'；
+			'<tr id = "prov_line"><td id="country_'+country+'"><label for="prov_'+country+'" id="">'+state_prov_title+':</label></td><td>'+options[0].outerHTML+'</td><td id="">*</td></tr>';
 
 			table_to_extend.append(tr_code);
 
 			var pos_field = 
-			'<tr id="pos"><td> <label for="Addr_tb_'+pos_label+'" id="AddrCtl_lb'+pos_label+'">'+pos_label+':</label> </td> <td id="AddrCtl_ctl_'+pos_label+'"> <input name="pos_'+pos_label+'" type="text" maxlength="12" id="Addr_tb_'+pos_label+'"/></span></td> <td id="lblreq_'+pos_label+'"> * </td></tr>'；
-			
+			'<tr id="pos"><td> <label for="Addr_tb_'+pos_label+'" id="AddrCtl_lb_pos'+pos_label+'">'+pos_label+':</label> </td> <td id="AddrCtl_ctl_'+pos_label+'"> <input name="pos_'+pos_label+'" type="text" maxlength="12" id="Addr_tb_'+pos_label+'"/></span></td> <td id="lblreq_'+pos_label+'"> * </td></tr>';
+
 			table_to_extend.append(pos_field);
+		}
+
+		function validation(){
+
+			$('#sum_contents').remove();
+
+			var country_input = $('select#change_country').val();
+			var addr_input = $('textarea#AddrCtl_tb_addrline').val();
+			var prov_input = $('select[id^=AddrCtl_pro]')[0].value;
+			var pos_input = $('input[id^=Addr_tb_]')[0].value;
+			var pos_check = false, pos_name, prov_name;
+
+			if(country_input.length == 0 || addr_input.length == 0 || prov_input.length == 0 || pos_input.length == 0){
+				alert("Input not correct. Please make sure all required fields are filled out correctly!");
+			}else if(country_input === 'Canada'){
+				pos_name = "Canada", prov_name='Province';
+				if(/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/.test(pos_input)){
+					pos_check = true;
+				}else{
+					alert("Candian Postal Code incorrect!");
+				}
+			}else if(country_input === "United States"){
+				pos_name = "United States",prov_name='States';
+				if(/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(pos_input)){
+					pos_check = true;
+				}else{
+					alert("US Zip Code incorrect!");
+				}
+			}
+			if(pos_check){
+				$('#Summary').append('<div id="sum_contents"><p>Country: '+country_input+'</p><p>Address: '+addr_input+'</p><p>'+prov_name+': '+prov_input+'</p><p>'+pos_name+': '+pos_input+'</p>');
+			}
 		}
 	</script>
 </footer>
