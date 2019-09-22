@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>addr form</title>
+	<title>Address Form</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -27,7 +27,7 @@
 	<div class="page-header">
     	<h2>Address validation, by Jia Xu</h2>
   	</div>
-	<table class="table">
+	<table class="table" id="addr_table">
 		<tr>
 		    <td id="addrCtl_label_country" class="">
 		        <label for="change_country" id="cg_label_country">Country:</label>
@@ -49,37 +49,8 @@
 				
 		    <td id="AddrCtl_ctl_addr" class="">
 		        <textarea name="tb_AddrLine" rows="2" cols="20" id="AddrCtl_tb_addrline" class=""></textarea>
-		    <td id="AddrCtl_lblreq" valign="top" class="">*</td>
-				
+		    <td id="AddrCtl_lblreq" valign="top" class="">*</td>	
 		</tr>
-
-
-
-	    <!-- <tr>
-	        <td id="PC6028_DonationCapture1_AddressCtl_lbl_cityCAN" class="">
-	            <label for="PC6028_DonationCapture1_AddressCtl_tb_CityCAN" id="PC6028_DonationCapture1_AddressCtl_lblCityCan">City:</label>
-	        </td>
-			<td id="PC6028_DonationCapture1_AddressCtl_ctl_cityCAN" class="">
-	            <input name="PC6028$DonationCapture1$AddressCtl$tb_CityCAN" type="text" maxlength="50" id="PC6028_DonationCapture1_AddressCtl_tb_CityCAN" class="" />
-	        <span id="PC6028_DonationCapture1_AddressCtl_ctl09" style="display:none;"></span></td>
-			<td id="PC6028_DonationCapture1_AddressCtl_lblreq_cityCAN" class="">
-	            *
-	        </td>
-			
-	    </tr> -->
-	    <!-- <tr>
-	        <td id="PC6028_DonationCapture1_AddressCtl_lbl_provCAN" class="">
-	            <label for="PC6028_DonationCapture1_AddressCtl_dd_ProvCAN" id="PC6028_DonationCapture1_AddressCtl_lblProvinceCan">Province:</label>
-	        </td>
-			
-
-			</select>
-	        <span id="AddrCtl_prov_star" style="display:none;"></span></td>
-			<td id="PC6028_DonationCapture1_AddressCtl_lblreq_provCAN" class="">
-	            *
-	        </td>
-			
-	    </tr> -->
 	</table>
 	<button type="button" class="btn btn-primary btn-pos">Submit</button><br/><br />
 	<div>
@@ -90,89 +61,46 @@
 </body>
 <footer>
 	<script type="text/javascript">
-		prov_ca = {
-					"AB": "Alberta",
-					"BC": "British Columbia",
-					"MB": "Manitoba",
-					"NB": "New Brunswick",
-					"NL": "Newfoundland and Labrador",
-					"NT": "Northwest Territories",
-					"NS": "Nova Scotia",
-					"NU": "Nunavut",
-					"ON": "Ontario",
-					"PE": "Prince Edward Island",
-					"QC": "Quebec",
-					"SK": "Saskatchewan",
-					"YT": "Yukon Territory"
-				}
-		prov_us = {
-				    "AL": "Alabama",
-				    "AK": "Alaska",
-				    "AS": "American Samoa",
-				    "AZ": "Arizona",
-				    "AR": "Arkansas",
-				    "CA": "California",
-				    "CO": "Colorado",
-				    "CT": "Connecticut",
-				    "DE": "Delaware",
-				    "DC": "District Of Columbia",
-				    "FM": "Federated States Of Micronesia",
-				    "FL": "Florida",
-				    "GA": "Georgia",
-				    "GU": "Guam",
-				    "HI": "Hawaii",
-				    "ID": "Idaho",
-				    "IL": "Illinois",
-				    "IN": "Indiana",
-				    "IA": "Iowa",
-				    "KS": "Kansas",
-				    "KY": "Kentucky",
-				    "LA": "Louisiana",
-				    "ME": "Maine",
-				    "MH": "Marshall Islands",
-				    "MD": "Maryland",
-				    "MA": "Massachusetts",
-				    "MI": "Michigan",
-				    "MN": "Minnesota",
-				    "MS": "Mississippi",
-				    "MO": "Missouri",
-				    "MT": "Montana",
-				    "NE": "Nebraska",
-				    "NV": "Nevada",
-				    "NH": "New Hampshire",
-				    "NJ": "New Jersey",
-				    "NM": "New Mexico",
-				    "NY": "New York",
-				    "NC": "North Carolina",
-				    "ND": "North Dakota",
-				    "MP": "Northern Mariana Islands",
-				    "OH": "Ohio",
-				    "OK": "Oklahoma",
-				    "OR": "Oregon",
-				    "PW": "Palau",
-				    "PA": "Pennsylvania",
-				    "PR": "Puerto Rico",
-				    "RI": "Rhode Island",
-				    "SC": "South Carolina",
-				    "SD": "South Dakota",
-				    "TN": "Tennessee",
-				    "TX": "Texas",
-				    "UT": "Utah",
-				    "VT": "Vermont",
-				    "VI": "Virgin Islands",
-				    "VA": "Virginia",
-				    "WA": "Washington",
-				    "WV": "West Virginia",
-				    "WI": "Wisconsin",
-				    "WY": "Wyoming"
-				}
 		//init the page with Canada option
 		add_country('Canada');
+
 		//modify page when user add a country
 		function add_country(country){
-			if (country === 'Canada'){
-				
+
+			var table_to_extend = $("#addr_table");
+			var prov, state_prov_title, country_, pos_label;
+
+			if($('#prov_line')){
+				$('#prov_line').remove();
+				$('#pos').remove();
 			}
+
+			if(country === "Canada"){
+				country_ = 'ca';
+				pos_label = 'Postal Code';
+				prov = ["AB","BC","MB","NB","NL","NT","NS","NU","ON","PE","QC","SK","YT"];
+				state_prov_title = 'Province';
+			}else if(country === "United States"){
+				country_ = 'us'
+				pos_label = 'Zip';
+				prov = [ "AK","AL","AR","AS","AZ","CA","CO","CT","DC","DE","FL","GA","GU","HI","IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MI","MN","MO","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","PR","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"];
+				state_prov_title = 'States'
+			}
+
+			var options = $('<select id="AddrCtl_prov'+country_+'"></select>');
+			for(var i = 0; i < prov.length; i++){
+				options.append('<option value="'+prov[i]+'">'+prov[i]+'</option>');
+			}
+
+			var tr_code = 
+			'<tr id = "prov_line"><td id="country_'+country+'"><label for="prov_'+country+'" id="">'+state_prov_title+':</label></td><td>'+options[0].outerHTML+'</td><td id="">*</td></tr>'；
+
+			table_to_extend.append(tr_code);
+
+			var pos_field = 
+			'<tr id="pos"><td> <label for="Addr_tb_'+pos_label+'" id="AddrCtl_lb'+pos_label+'">'+pos_label+':</label> </td> <td id="AddrCtl_ctl_'+pos_label+'"> <input name="pos_'+pos_label+'" type="text" maxlength="12" id="Addr_tb_'+pos_label+'"/></span></td> <td id="lblreq_'+pos_label+'"> * </td></tr>'；
+			
+			table_to_extend.append(pos_field);
 		}
 	</script>
 </footer>
