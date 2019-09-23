@@ -54,7 +54,7 @@
 	</table>
 	<button type="button" onclick="validation()" class="btn btn-primary btn-pos">Submit</button><br/><br />
 	<div id="Summary">
-		<h3>Summary:</h3>
+		<h3>Summary(click submit to see your results):</h3>
 	</div>
 </div>
 
@@ -114,7 +114,7 @@
 			var pos_check = false, pos_name, prov_name;
 
 			if(country_input.length == 0 || addr_input.length == 0 || prov_input.length == 0 || pos_input.length == 0){
-				alert("Input not correct. Please make sure all required fields are filled out correctly!");
+				alert("Input incorrect. Please make sure all required fields are filled out correctly!");
 			}else if(country_input === 'Canada'){
 				pos_name = "Canada", prov_name='Province';
 				if(/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/.test(pos_input)){
