@@ -25,7 +25,7 @@
 <body>
 <div class="centered">
 	<div class="page-header">
-    	<h2>Address validation, by Jia Xu</h2>
+    	<h3>Address validation, by Jia Xu</h3>
   	</div>
 	<table class="table" id="addr_table">
 		<tr>
@@ -44,7 +44,7 @@
 		</tr>
 		<tr>
 		    <td id="AddrCtl_lbl_addrline" class="">
-		        <label for="AddrCtl_tb_addrline" id="AddrCtl_lblAddr">Address lines:</label>
+		        <label for="AddrCtl_tb_addrline" id="AddrCtl_lblAddr">Street and Number:</label>
 		    </td>
 				
 		    <td id="AddrCtl_ctl_addr" class="">
@@ -52,9 +52,9 @@
 		    <td id="AddrCtl_lblreq" valign="top" class="">*</td>	
 		</tr>
 	</table>
-	<button type="button" onclick="validation()" class="btn btn-primary btn-pos">Submit</button><br/><br />
+	<button type="button" onclick="validation()" class="btn btn-primary btn-pos">Submit</button><br>
 	<div id="Summary">
-		<h3>Summary(click submit to see your results):</h3>
+		<h3>Summary(click submit):</h3>
 	</div>
 </div>
 
@@ -116,14 +116,14 @@
 			if(country_input.length == 0 || addr_input.length == 0 || prov_input.length == 0 || pos_input.length == 0){
 				alert("Input incorrect. Please make sure all required fields are filled out correctly!");
 			}else if(country_input === 'Canada'){
-				pos_name = "Canada", prov_name='Province';
+				pos_name = "Postal code", prov_name='Province';
 				if(/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/.test(pos_input)){
 					pos_check = true;
 				}else{
 					alert("Candian Postal Code incorrect!");
 				}
 			}else if(country_input === "United States"){
-				pos_name = "United States",prov_name='States';
+				pos_name = "Zip",prov_name='States';
 				if(/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(pos_input)){
 					pos_check = true;
 				}else{
@@ -131,7 +131,7 @@
 				}
 			}
 			if(pos_check){
-				$('#Summary').append('<div id="sum_contents"><p>Country: '+country_input+'</p><p>Address: '+addr_input+'</p><p>'+prov_name+': '+prov_input+'</p><p>'+pos_name+': '+pos_input+'</p>');
+				$('#Summary').append('<div id="sum_contents"><p>Country: '+country_input+'</p><p>Street: '+addr_input+'</p><p>'+prov_name+': '+prov_input+'</p><p>'+pos_name+': '+pos_input+'</p>');
 			}
 		}
 	</script>
